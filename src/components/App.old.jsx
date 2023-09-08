@@ -6,20 +6,20 @@ import { fetchImages } from './api/fetch';
 import { Spinner } from './Spinner/Spinner';
 
 export class App extends Component {
-  state = {
-    query: '',
-    images: [],
-    page: 1,
-    loading: false,
-  };
+  // state = {
+  //   query: '',
+  //   images: [],
+  //   page: 1,
+  //   loading: false,
+  // };
 
-  changeQuery = newQuery => {
-    this.setState({
-      query: `${Date.now()}/${newQuery}`,
-      images: [],
-      page: 1,
-    });
-  };
+  // changeQuery = newQuery => {
+  //   this.setState({
+  //     query: `${Date.now()}/${newQuery}`,
+  //     images: [],
+  //     page: 1,
+  //   });
+  // };
 
   async componentDidUpdate(prevProps, prevState) {
     try {
@@ -46,20 +46,20 @@ export class App extends Component {
     }
   }
 
-  handleLoadMore = () => {
-    this.setState(prevState => ({ page: prevState.page + 1 }));
-  };
+  // handleLoadMore = () => {
+  //   this.setState(prevState => ({ page: prevState.page + 1 }));
+  // };
 
   render() {
-    const { images, loading } = this.state;
+    // const { images, loading } = this.state;
 
     return (
       <>
-        <Searchbar changeQuery={this.changeQuery} />
+        {/* <Searchbar changeQuery={this.changeQuery} /> */}
 
         {loading ? <Spinner /> : <ImageGallery images={images} />}
         {/* <ImageGallery images={images} /> */}
-        {images.length > 0 && <Button loadMore={this.handleLoadMore} />}
+        {/* {images.length > 0 && <Button loadMore={this.handleLoadMore} />} */}
       </>
     );
   }
