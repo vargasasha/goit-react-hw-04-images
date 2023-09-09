@@ -26,7 +26,7 @@ export const App = () => {
 
         const response = await fetchImages(slicedQuery, page);
 
-        setImages(response.hits);
+        setImages(prevState => [...prevState, ...response.hits]);
       } catch (error) {
         console.log(error);
       } finally {
@@ -34,6 +34,8 @@ export const App = () => {
     }
     getImages();
   }, [query, page]);
+
+
 
   const handleLoadMore = () => {
     setPage(prevState => prevState + 1);
